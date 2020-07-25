@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPlanets } from '../actions';
 import FilterName from './FilterName';
 import FilterValues from './FilterValues';
+import RemoveFilters from './RemoveFilters';
 
 export class Home extends Component {
 
@@ -21,6 +22,7 @@ export class Home extends Component {
         <h3>Strawars DataTable</h3>
         <FilterName />
         <FilterValues />
+        <RemoveFilters />
         <Table />
       </div>
     )
