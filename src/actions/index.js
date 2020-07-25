@@ -44,3 +44,8 @@ export function fetchPlanets() {
     comparison,
     value,
   });
+
+  export const removeNumericFilter = (filterKeys) => ({
+    type: REMOVE_FILTER_BY_NUMERIC_VALUES,
+    filterKeys,
+  });

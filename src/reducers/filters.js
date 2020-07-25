@@ -22,6 +22,15 @@ const filters = (state = INITIAL_STATE, action) => {
           value: action.value,
         }]
       }
+      case REMOVE_FILTER_BY_NUMERIC_VALUES:
+        return {
+          ...state,
+          filterByNumericValues: [
+            ...state.filterByNumericValues.filter(
+              (item) => item !== action.filterKeys
+            ),
+          ]
+        }
     default:
       return state;
   }
