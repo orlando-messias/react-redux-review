@@ -5,6 +5,7 @@ export const REQUEST_PLANETS_SUCCESS = 'REQUEST_PLANETS_SUCCESS';
 export const REQUEST_PLANETS_FAILURE = 'REQUEST_PLANETS_FAILURE';
 export const FILTER_BY_NAME = 'FILTER_BY_NAME';
 export const FILTER_BY_NUMERIC_VALUES = 'FILTER_BY_NUMERIC_VALUES';
+export const SORT_COLUMNS = 'SORT_COLUMNS';
 
 const requestingPlanets = () => ({
   type: REQUESTING_PLANETS,
@@ -44,3 +45,8 @@ export function fetchPlanets() {
     comparison,
     value,
   });
+
+  export const sortColumns = (value) => ({
+    type: SORT_COLUMNS,
+    value,
+  })
