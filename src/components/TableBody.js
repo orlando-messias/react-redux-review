@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import filterFunc from './functions/filterFunc';
+import sortFunc from './functions/sortFunc';
 
 class TableBody extends Component {
   render() {
-    const { planets, name, numericValues } = this.props;
+    const { planets, name, numericValues, column, order } = this.props;
     const data = filterFunc(planets, name, numericValues);
     // const filterName = planets.filter((planet) => planet.name.includes(name));
+    const orderedPlanets = sortFunc(data, column, order);
     return (
       <tbody>
-        {data.map((planet) => (
+        {orderedPlanets.map((planet) => (
           <tr key={planet.name}>
             <td>{planet.name}</td>
             <td>{planet.rotation_period}</td>
@@ -39,6 +41,8 @@ const mapState = (state) => ({
   planets: state.getPlanets.data,
   name: state.filters.filterByName.name,
   numericValues: state.filters.filterByNumericValues,
+  column: state.filters.order.column,
+  order: state.filters.order.sort,
 });
 
 export default connect(mapState)(TableBody);
